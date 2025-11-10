@@ -11,26 +11,33 @@
         <div class="progress-text">Progress</div>
         <div class="progressbar">
             <div class="progress-container" data-value="50">
-            <svg class="progress-svg" viewBox=" 0 0 120 120">
-                <circle class="progress-svg-bg" cx="60" cy="60" r="54" />
-                <circle class="progress-svg-value" cx="60" cy="60" r="54" />
-            </svg>
+                <svg class="progress-svg" viewBox=" 0 0 120 120">
+                    <circle class="progress-svg-bg" cx="60" cy="60" r="54" />
+                    <circle class="progress-svg-value" cx="60" cy="60" r="54" />
+                </svg>
+            </div>        
+            <div class="control-container">
+                <div class="control-input">
+                    <input type="number" id="input-value" min="0" max="100" step="1" value="0">
+                    <div class="input-value-text">Value</div>
+                </div>
+                <div class="control-checkbox">
+                    <label class="checkbox-group">
+                        <input type="checkbox" id="input-checkbox">
+                        <span class="checkbox-slider"></span>
+                    </label>
+                    <div class="input-checkbox-text">Animate</div>
+                </div>
+                <div class="control-checkbox-hidden">
+                    <label class="checkbox-group">
+                        <input type="checkbox" id="input-checkbox-hidden">
+                        <span class="checkbox-slider"></span>
+                    </label>
+                    <div class="input-checkbox-hidden-text">Hide</div>
+                </div>
+            </div>
         </div>
-        <div class="control-container">
-            <div class="control-input">
-                <input type="number" id="input-value" min="0" max="100" step="1" value="0">
-                <div class="input-value-text">Value</div>
-            </div>
-            <div class="control-checkbox">
-                <input type="checkbox" id="input-checkbox">
-                <div class="input-checkbox-text">Animate</div>
-            </div>
-            <div class="control-checkbox-hidden">
-                <input type="checkbox" id="input-checkbox-hidden">
-                <div class="input-checkbox-hidden-text">Hide</div>
-            </div>
-        </div>
-    </div>    
+    </div>   
     <script src="script.js" defer></script>
 </body>
 </html>
