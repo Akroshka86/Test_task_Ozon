@@ -48,7 +48,6 @@ class ProgressBar{
         this.rings.style.display = isHidden ? `none` : `block`;
     }
 
-
     // Блок API
     getValue() {
         return +this.rings.dataset.value;
