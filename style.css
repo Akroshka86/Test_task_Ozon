@@ -1,0 +1,38 @@
+.progress-container {
+    --size: 150px;
+    --stroke-width: 10;
+
+    width: var(--size);
+    position: relative;
+    margin: 0 auto;
+}
+
+.progress-container::after {
+    content: attr(data-value) "%";
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 28px;
+    font-family: sans-serif;
+    color: #000000;
+}
+
+.progress-svg {
+    rotate: -90deg;
+}
+
+.progress-svg-bg,
+.progress-svg-value {
+    fill:none;
+    stroke-width: var(--stroke-width);
+}
+
+.progress-svg-bg {
+    stroke: #bfbfbf;
+}
+
+.progress-svg-value {
+    stroke: #000;
+}
