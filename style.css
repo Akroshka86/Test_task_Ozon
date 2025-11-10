@@ -75,7 +75,7 @@ body {
     border-radius: 20px;
     padding: 5px 15px;
     font-size: 16px;
-    width: 30px;
+    width: 20px;
     text-align: center;
 }
 
@@ -83,4 +83,35 @@ input[type='number']::-webkit-inner-spin-button,
 input[type='number']::-webkit-outer-spin-button {
     -webkit-appearance: none;
     margin: 0;
+}
+
+input[type='checkbox'] {
+    width: 50px;
+}
+
+.control-container{
+    display: flex;
+    gap: 30px;
+    flex-direction: column;
+    width: 152px;
+}
+
+.control-input {
+    display: flex;
+    gap: 30px;
+}
+
+.control-checkbox {
+    display: flex;
+    gap: 30px;
+}
+
+.control-checkbox-hidden {
+    display: flex;
+    gap: 30px;
+}
+
+.input-value-text {
+    display: flex;
+    align-items: center;
 }
