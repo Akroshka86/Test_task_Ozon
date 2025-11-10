@@ -2,13 +2,13 @@ class ProgressBar{
     constructor(progress_container, input_value, rotateCheckbox, hidenCheckbox){
         this.rings = document.querySelector(progress_container);
         this.circle = this.rings.querySelector('.progress-svg-value');
-        this.radius = this.circle.r.baseVal.value;
-        this.circleLength = 2 * Math.PI * this.radius;
         this.input = document.getElementById(input_value);
         this.rotateCheckbox = document.getElementById(rotateCheckbox);
         this.hidenCheckbox = document.getElementById(hidenCheckbox);
         this.svg = this.rings.querySelector('.progress-svg');
 
+        this.radius = this.circle.r.baseVal.value;
+        this.circleLength = 2 * Math.PI * this.radius;
         this.circle.style.strokeDasharray = this.circleLength;
         this.circle.style.strokeDashoffset = this.circleLength;
         this.rings.dataset.value = 0;
@@ -26,9 +26,18 @@ class ProgressBar{
         });
     }
 
-    updateProgressBar(value){
-        this.circle.style.strokeDashoffset = this.circleLength * (1 - value / 100);
-        this.rings.dataset.value = value;
+    updateProgressBar(value){        
+        let normalizeValue;
+        if (value <= 0) {
+            normalizeValue = 0
+        } else if (value >= 100){
+            normalizeValue = 100;
+        } else {
+            normalizeValue = value;
+        }
+
+        this.circle.style.strokeDashoffset = this.circleLength * (1 - normalizeValue / 100);
+        this.rings.dataset.value = normalizeValue;
     }
 
     toggleAnimation(isAnimated){
@@ -37,6 +46,29 @@ class ProgressBar{
 
     toggleHidden(isHidden){
         this.rings.style.display = isHidden ? `none` : `block`;
+    }
+
+
+    // Блок API
+    getValue() {
+        return +this.rings.dataset.value;
+    }
+
+    // На практике можно обращаться и к предыдущим методам, но добавим функционал, 
+    // чтобы также обновлялся input и checkbox
+    setValue(value) {
+        this.updateProgressBar(value);
+        this.input.value = value;
+    }
+
+    setAnimated(isAnimated) {
+        this.toggleAnimation(isAnimated)
+        this.rotateCheckbox.checked = isAnimated;
+    }
+
+    setHidden(isHidden) {
+        this.toggleHidden(isHidden)
+        this.hidenCheckbox.checked = isHidden;
     }
 }
 
