@@ -5,12 +5,15 @@ body {
     min-height: 100vh;
     gap: 50px;
     flex-direction: column;
+    font-family: Montserrat, sans-serif;
+    margin: 0;
+    font-weight: bold;
 }
 
 .container {
     display: flex;
     flex-direction: column;
-    gap: 30px;
+    gap: 50px;
 }
 
 .progressbar{
@@ -18,7 +21,7 @@ body {
     align-items: center;
     justify-content: center;
     max-width: 600px;
-    gap: 30px;
+    gap: 50px;
 }
 
 .progress-container {
@@ -96,11 +99,13 @@ input[type='number']::-webkit-outer-spin-button {
 .control-checkbox {
     display: flex;
     gap: 30px;
+    align-items: center;
 }
 
 .control-checkbox-hidden {
     display: flex;
     gap: 30px;
+    align-items: center;
 }
 
 .input-value-text {
@@ -110,7 +115,7 @@ input[type='number']::-webkit-outer-spin-button {
 
 .checkbox-group {
     position: relative;
-    width: 50px;
+    width: 54px;
     height: 25px;
 }
 
