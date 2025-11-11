@@ -30,6 +30,7 @@ class ProgressBar{
         });
     }
 
+    // Основные методы
     updateProgressBar(value){        
         this.circle.style.strokeDashoffset = this.circleLength * (1 - value / 100);
         this.rings.dataset.value = value;
