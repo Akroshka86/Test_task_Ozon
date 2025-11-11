@@ -17,6 +17,10 @@ class ProgressBar{
             this.updateProgressBar(+this.input.value);
         });
 
+        this.input.addEventListener('beforeinput', (line) => {
+            this.validateInput(line);
+        });
+
         this.rotateCheckbox.addEventListener('change', () => {
             this.toggleAnimation(+this.rotateCheckbox.checked);
         });
@@ -27,17 +31,8 @@ class ProgressBar{
     }
 
     updateProgressBar(value){        
-        let normalizeValue;
-        if (value <= 0) {
-            normalizeValue = 0
-        } else if (value >= 100){
-            normalizeValue = 100;
-        } else {
-            normalizeValue = value;
-        }
-
-        this.circle.style.strokeDashoffset = this.circleLength * (1 - normalizeValue / 100);
-        this.rings.dataset.value = normalizeValue;
+        this.circle.style.strokeDashoffset = this.circleLength * (1 - value / 100);
+        this.rings.dataset.value = value;
     }
 
     toggleAnimation(isAnimated){
@@ -45,7 +40,42 @@ class ProgressBar{
     }
 
     toggleHidden(isHidden){
-        this.rings.style.display = isHidden ? `none` : `block`;
+        this.rings.style.visibility = isHidden ? `hidden` : `visible`;
+    }
+
+    // Блок валидации
+    validateInput(line) {
+        const currentValue = this.input.value;
+        const selectionStart = this.input.selectionStart ?? currentValue.length;
+        const selectionEnd = this.input.selectionEnd ?? currentValue.length;
+
+        const newValue =
+            currentValue.slice(0, selectionStart) +
+            line.data +
+            currentValue.slice(selectionEnd);
+        
+        if (line.inputType.startsWith('delete')) return;
+
+        if(!/^\d$/.test(line.data)){
+            line.preventDefault();
+            return;
+        }
+
+        if (/^0\d/.test(newValue)) {
+            line.preventDefault();
+            return;
+        }
+
+        if (newValue.length > 3) {
+            line.preventDefault();
+            return;
+        }
+
+        const num = Number(newValue);
+        if (num < 0 || num > 100){
+            line.preventDefault();
+            return;
+        }
     }
 
     // Блок API
@@ -56,6 +86,10 @@ class ProgressBar{
     // На практике можно обращаться и к предыдущим методам, но добавим функционал, 
     // чтобы также обновлялся input и checkbox
     setValue(value) {
+        if (value < 0 || value > 100){
+            throw new Error(`The value must be between 0 and 100. Received: ${value}`)
+        }
+
         this.updateProgressBar(value);
         this.input.value = value;
     }
