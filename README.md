@@ -14,3 +14,5 @@
     - setHidden() - скрыть или показать прогресс-бар;
 
 ## Ссылка на проект:
+
+https://akroshka86.github.io/Test_task_Ozon/
