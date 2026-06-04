@@ -1,43 +1,45 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Test tsk Ozon</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
+    <link rel="stylesheet" href="src/styles.css" />
+    <link rel="stylesheet" href="src/components/progressBar/progressBar.css" />
+  </head>
+  <body>
     <div class="container">
-        <div class="progress-text">Progress</div>
-        <div class="progressbar">
-            <div class="progress-container" data-value="50">
-                <svg class="progress-svg" viewBox=" 0 0 120 120">
-                    <circle class="progress-svg-bg" cx="60" cy="60" r="54" />
-                    <circle class="progress-svg-value" cx="60" cy="60" r="54" />
-                </svg>
-            </div>        
-            <div class="control-container">
-                <div class="control-input">
-                    <input type="number" id="input-value" min="0" max="100" value="0">
-                    <div class="input-value-text">Value</div>
-                </div>
-                <div class="control-checkbox">
-                    <label class="checkbox-group">
-                        <input type="checkbox" id="input-checkbox">
-                        <span class="checkbox-slider"></span>
-                    </label>
-                    <div class="input-checkbox-text">Animate</div>
-                </div>
-                <div class="control-checkbox-hidden">
-                    <label class="checkbox-group">
-                        <input type="checkbox" id="input-checkbox-hidden">
-                        <span class="checkbox-slider"></span>
-                    </label>
-                    <div class="input-checkbox-hidden-text">Hide</div>
-                </div>
-            </div>
+      <div class="progress-text">Progress</div>
+      <div class="progressbar">
+        <div class="progress-container" data-value="50">
+          <svg class="progress-svg" viewBox=" 0 0 120 120">
+            <circle class="progress-svg-bg" cx="60" cy="60" r="54" />
+            <circle class="progress-svg-value" cx="60" cy="60" r="54" />
+          </svg>
         </div>
-    </div>   
-    <script src="script.js" defer></script>
-</body>
+        <div class="control-container">
+          <div class="control-input">
+            <input type="number" id="input-value" min="0" max="100" value="0" />
+            <div class="input-value-text">Value</div>
+          </div>
+          <div class="control-checkbox">
+            <label class="checkbox-group">
+              <input type="checkbox" id="input-checkbox" />
+              <span class="checkbox-slider"></span>
+            </label>
+            <div class="input-checkbox-text">Animate</div>
+          </div>
+          <div class="control-checkbox-hidden">
+            <label class="checkbox-group">
+              <input type="checkbox" id="input-checkbox-hidden" />
+              <span class="checkbox-slider"></span>
+            </label>
+            <div class="input-checkbox-hidden-text">Hide</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="src/components/progressBar/progressBar.js" defer></script>
+    <script src="src/main.js" defer></script>
+  </body>
 </html>

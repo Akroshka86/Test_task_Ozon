@@ -1,0 +1,35 @@
+.progress-container {
+  --size: 150px;
+  --stroke-width: 10;
+
+  width: var(--size);
+  position: relative;
+  margin: 0 auto;
+}
+
+.progress-svg {
+  rotate: -90deg;
+}
+
+.progress-svg-bg,
+.progress-svg-value {
+  fill: none;
+  stroke-width: var(--stroke-width);
+}
+
+.progress-svg-bg {
+  stroke: #eaf0f6;
+}
+
+.progress-svg-value {
+  stroke: #005cff;
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
